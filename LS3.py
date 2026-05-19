@@ -1,34 +1,30 @@
-# Input
-# Họ tên bệnh nhân (string)
-# Mã bệnh án (string)
-# Khoa/phòng khám (string)
+# input: name(str), age(int)
+
+# output: 
+# + thông báo lỗi 
+# + in ra phiếu khám
 
 
-# Output
-# Hiển thị phiếu khám bệnh điện tử gồm:
-# Họ tên
-# Mã bệnh án
-# Khoa khám
-# Trạng thái tiếp nhận
+# giải pháp:
+# + sử dụng hàm .strip() để loai bỏ khoảng trắng đầu cuối
+# + sử dụng toán tử or kết hợp if else
 
 
-# Thuật toán
-# Bắt đầu
-# Nhập họ tên
-# Nhập mã bệnh án
-# Nhập khoa khám
-# Hiển thị phiếu khám bệnh
-# Kết thúc
+name = input("Nhập họ và tên bệnh nhân: ").strip()
+age = int(input("Nhập tuổi của bệnh nhân: "))
 
-# Code
-# Tiếp nhận bệnh nhân
+if name == "" or age < 0 or age > 150:
+    print("\nLỖI: Tên không hợp lệ hoặc Tuổi nằm ngoài phạm vi con người (0-150)!")
 
-ho_ten = input("Nhập họ tên bệnh nhân: ")
-ma_benh_an = input("Nhập mã bệnh án: ")
-khoa_kham = input("Nhập khoa/phòng khám: ")
+else:
+    if age < 6:
+        triage_result = "ƯU TIÊN: Bệnh nhi - Chuyển thẳng phòng khám Nhi."
+    elif age >= 80:
+        triage_result = "ƯU TIÊN: Người cao tuổi - Hỗ trợ xe lăn, chuyển phòng khám Lão khoa."
+    else:
+        triage_result = "KHÁM THƯỜNG: Vui lòng lấy số thứ tự và chờ tới lượt tại sảnh."
 
-print("\n   PHIẾU KHÁM BỆNH")
-print("Họ tên bệnh nhân:", ho_ten)
-print("Mã bệnh án:", ma_benh_an)
-print("Khoa khám:", khoa_kham)
-print("Trạng thái: Đã tiếp nhận thành công")
+    print("           PHIẾU KHÁM BỆNH ĐIỆN TỬ")
+    print(f"Họ và tên bệnh nhân : {name}")
+    print(f"Tuổi                : {age}")
+    print(f"Kết quả phân luồng  : {triage_result}")
